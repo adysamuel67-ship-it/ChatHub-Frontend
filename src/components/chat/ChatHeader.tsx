@@ -35,7 +35,7 @@ export default function ChatHeader() {
   }
 
   return (
-    <div className="flex h-[3.75rem] shrink-0 items-center gap-2 bg-[#00a884] px-3 md:px-4">
+    <div className="flex h-[3.75rem] shrink-0 items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-500 px-3 md:px-4">
       <button onClick={clearActiveChat} className="icon-btn-light md:hidden">
         <ArrowLeft size={20} />
       </button>
@@ -48,7 +48,7 @@ export default function ChatHeader() {
 
       <div className="min-w-0 flex-1">
         <p className="truncate text-[16px] font-medium text-white">{active.user.name}</p>
-        <p className="flex items-center gap-1 truncate text-[13px] text-[#25d366]">
+        <p className="flex items-center gap-1 truncate text-[13px] text-sky-300">
           {isOnline ? 'online' : 'last seen recently'}
         </p>
       </div>
@@ -71,21 +71,21 @@ export default function ChatHeader() {
           {showMenu && (
             <>
               <div className="fixed inset-0 z-40" onClick={() => setShowMenu(false)} />
-              <div className="anim-pop absolute right-0 top-full z-50 mt-1.5 w-52 rounded-lg border border-[#e9edef] bg-white py-1.5 shadow-2xl shadow-black/20">
-                <div className="flex items-center gap-2.5 px-3 py-2 text-[13px] text-[#8696a0]">
+              <div className="anim-pop absolute right-0 top-full z-50 mt-1.5 w-52 rounded-lg border border-[#e2e8f0] bg-white py-1.5 shadow-2xl shadow-black/20">
+                <div className="flex items-center gap-2.5 px-3 py-2 text-[13px] text-[#94a3b8]">
                   <Lock size={14} />
                   End-to-end encrypted
                 </div>
-                <div className="h-px bg-[#e9edef]" />
+                <div className="h-px bg-[#e2e8f0]" />
                 <button
                   onClick={() => {
                     setShowMenu(false)
                     if (contact) setProfileContact(contact)
                   }}
                   disabled={!contact}
-                  className="flex w-full items-center gap-2.5 px-3 py-2 text-[13.5px] text-[#111b21] hover:bg-[#f5f6f6] disabled:opacity-50"
+                  className="flex w-full items-center gap-2.5 px-3 py-2 text-[13.5px] text-[#0f172a] hover:bg-[#f8fafc] disabled:opacity-50"
                 >
-                  <UserRound size={16} className="text-[#8696a0]" />
+                  <UserRound size={16} className="text-[#94a3b8]" />
                   Contact info
                 </button>
                 {contact && (

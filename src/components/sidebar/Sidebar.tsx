@@ -50,7 +50,6 @@ export default function Sidebar() {
 
   const searchActive = query.trim().length > 0
 
-  // live server-side search (debounced)
   useEffect(() => {
     const q = query.trim()
     if (!q) return
@@ -74,7 +73,6 @@ export default function Sidebar() {
 
   const appliedSearch = searchActive ? query.trim() : ''
 
-  // conversations are server-filtered via the same query
   useEffect(() => {
     void loadConversations(appliedSearch)
   }, [appliedSearch, loadConversations])
@@ -114,8 +112,8 @@ export default function Sidebar() {
 
   return (
     <div className="flex h-full flex-col bg-white">
-      {/* ===== WhatsApp-style green header ===== */}
-      <div className="flex shrink-0 items-center justify-between bg-[#00a884] px-3 py-2">
+      {/* ===== Blue header ===== */}
+      <div className="flex shrink-0 items-center justify-between bg-gradient-to-r from-blue-600 to-blue-500 px-3 py-2">
         <button
           onClick={() => setShowNewChatModal(true)}
           className="flex items-center gap-2 rounded-lg px-1 py-1 transition hover:bg-white/10"
@@ -139,12 +137,12 @@ export default function Sidebar() {
             {showDropdown && (
               <>
                 <div className="fixed inset-0 z-40" onClick={() => setShowDropdown(false)} />
-                <div className="anim-pop absolute right-0 top-full z-50 mt-1.5 w-56 rounded-xl border border-[#e9edef] bg-white py-1.5 shadow-2xl shadow-black/20">
-                  <div className="flex items-center gap-2.5 border-b border-[#e9edef] px-3 py-2.5">
+                <div className="anim-pop absolute right-0 top-full z-50 mt-1.5 w-56 rounded-xl border border-[#e2e8f0] bg-white py-1.5 shadow-2xl shadow-black/20">
+                  <div className="flex items-center gap-2.5 border-b border-[#e2e8f0] px-3 py-2.5">
                     <Avatar name={user?.name} size="xs" />
                     <div className="min-w-0">
-                      <p className="truncate text-[13.5px] font-semibold text-[#111b21]">{user?.name ?? '…'}</p>
-                      <p className="truncate text-[11.5px] text-[#8696a0]">{user?.phone}</p>
+                      <p className="truncate text-[13.5px] font-semibold text-[#0f172a]">{user?.name ?? '…'}</p>
+                      <p className="truncate text-[11.5px] text-[#94a3b8]">{user?.phone}</p>
                     </div>
                   </div>
                   <button
@@ -164,19 +162,19 @@ export default function Sidebar() {
       </div>
 
       {/* ===== Search ===== */}
-      <div className="border-b border-[#e9edef] bg-white px-3 py-2">
-        <div className="flex items-center gap-2.5 rounded-lg bg-[#f0f2f5] px-3 py-2">
-          <Search size={16} className="shrink-0 text-[#8696a0]" />
+      <div className="border-b border-[#e2e8f0] bg-white px-3 py-2">
+        <div className="flex items-center gap-2.5 rounded-full border border-transparent bg-[#f1f5f9] px-3.5 py-2 transition focus-within:border-blue-300 focus-within:bg-white focus-within:shadow-sm">
+          <Search size={16} className="shrink-0 text-[#94a3b8]" />
           <input
             ref={inputRef}
             type="text"
             value={query}
             onChange={(e) => handleQueryChange(e.target.value)}
             placeholder="Search or start a new chat"
-            className="w-full bg-transparent text-[14px] outline-none placeholder:text-[#8696a0]"
+            className="w-full bg-transparent text-[14px] outline-none placeholder:text-[#94a3b8]"
           />
           {searchActive && (
-            <button onClick={() => handleQueryChange('')} className="text-[#8696a0] transition hover:text-[#111b21]">
+            <button onClick={() => handleQueryChange('')} className="text-[#94a3b8] transition hover:text-[#0f172a]">
               <X size={15} />
             </button>
           )}
@@ -185,7 +183,7 @@ export default function Sidebar() {
 
       {/* ===== Tabs ===== */}
       {!searchActive && (
-        <div className="flex border-b border-[#e9edef] bg-white">
+        <div className="flex border-b border-[#e2e8f0] bg-white">
           {(
             [
               { id: 'chats', label: 'Chats', icon: MessageCircle },
@@ -196,12 +194,12 @@ export default function Sidebar() {
               key={id}
               onClick={() => setTab(id)}
               className={`relative flex items-center justify-center gap-1.5 px-5 py-3 text-[14px] font-medium transition-all ${
-                tab === id ? 'text-[#008069]' : 'text-[#8696a0] hover:text-[#111b21]'
+                tab === id ? 'text-[#2563EB]' : 'text-[#94a3b8] hover:text-[#0f172a]'
               }`}
             >
               <Icon size={16} />
               {label}
-              {tab === id && <span className="absolute inset-x-2 bottom-0 h-[3px] rounded-full bg-[#008069]" />}
+              {tab === id && <span className="absolute inset-x-2 bottom-0 h-[3px] rounded-full bg-[#2563EB]" />}
             </button>
           ))}
         </div>
@@ -225,7 +223,7 @@ export default function Sidebar() {
           /* ---- search results ---- */
           <div className="anim-fade-up">
             {isSearching && searchResults.length === 0 ? (
-              <div className="flex flex-col items-center py-14 text-[#8696a0]">
+              <div className="flex flex-col items-center py-14 text-[#94a3b8]">
                 <Loader2 size={22} className="animate-spin" />
                 <p className="mt-2 text-[13px]">Searching ChatHub…</p>
               </div>
@@ -233,7 +231,7 @@ export default function Sidebar() {
               <>
                 {sortedConversations.length > 0 && (
                   <>
-                    <p className="px-4 pb-1 pt-3 text-[11px] font-bold uppercase tracking-wider text-[#8696a0]">Chats</p>
+                    <p className="px-4 pb-1 pt-3 text-[11px] font-bold uppercase tracking-wider text-[#94a3b8]">Chats</p>
                     {sortedConversations.map((c) => (
                       <ConversationItem
                         key={c.user.user_id}
@@ -247,7 +245,7 @@ export default function Sidebar() {
 
                 {searchResults.length > 0 && (
                   <>
-                    <p className="px-4 pb-1 pt-3 text-[11px] font-bold uppercase tracking-wider text-[#8696a0]">
+                    <p className="px-4 pb-1 pt-3 text-[11px] font-bold uppercase tracking-wider text-[#94a3b8]">
                       People on ChatHub
                     </p>
                     {searchResults.map((u) => {
@@ -257,20 +255,20 @@ export default function Sidebar() {
                       return (
                         <div
                           key={u.user_id}
-                          className="group flex items-center gap-3 px-4 py-2.5 transition-colors hover:bg-[#f5f6f6]"
+                          className="group flex items-center gap-3 px-4 py-2.5 transition-colors hover:bg-[#f8fafc]"
                         >
                           <Avatar name={u.name} size="md" />
                           <div className="min-w-0 flex-1">
-                            <p className="truncate text-[15px] font-medium text-[#111b21]">{u.name}</p>
-                            <p className="truncate text-[13px] text-[#667781]">
+                            <p className="truncate text-[15px] font-medium text-[#0f172a]">{u.name}</p>
+                            <p className="truncate text-[13px] text-[#64748b]">
                               {u.phone}
-                              {savedContact && <span className="ml-1.5 text-[#008069]">· in contacts</span>}
+                              {savedContact && <span className="ml-1.5 text-[#2563EB]">· in contacts</span>}
                             </p>
                           </div>
                           <button
                             onClick={() => handleStartChat(u)}
                             disabled={busy}
-                            className="flex shrink-0 items-center gap-1.5 rounded-lg bg-[#00a884]/10 px-3 py-1.5 text-[12.5px] font-semibold text-[#008069] transition hover:bg-[#00a884]/20 disabled:opacity-60"
+                            className="flex shrink-0 items-center gap-1.5 rounded-lg bg-blue-50 px-3 py-1.5 text-[12.5px] font-semibold text-[#2563EB] transition hover:bg-blue-100 disabled:opacity-60"
                           >
                             {busy ? (
                               <Loader2 size={13} className="animate-spin" />
@@ -289,11 +287,11 @@ export default function Sidebar() {
 
                 {!isSearching && sortedConversations.length === 0 && searchResults.length === 0 && (
                   <div className="flex flex-col items-center py-16 text-center">
-                    <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#f0f2f5]">
-                      <Search size={22} className="text-[#8696a0]" />
+                    <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#f1f5f9]">
+                      <Search size={22} className="text-[#94a3b8]" />
                     </span>
-                    <p className="mt-3 text-[14.5px] font-semibold text-[#111b21]">No results for “{query.trim()}”</p>
-                    <p className="mt-1 max-w-[240px] text-[12.5px] text-[#8696a0]">
+                    <p className="mt-3 text-[14.5px] font-semibold text-[#0f172a]">No results for “{query.trim()}”</p>
+                    <p className="mt-1 max-w-[240px] text-[12.5px] text-[#94a3b8]">
                       Try a different name or phone number. Only people already on ChatHub can be messaged.
                     </p>
                   </div>
@@ -305,11 +303,11 @@ export default function Sidebar() {
           /* ---- chats list ---- */
           conversations.length === 0 ? (
             <div className="flex flex-col items-center px-6 py-16 text-center">
-              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-[#f0f2f5]">
-                <MessageCircle size={26} className="text-[#00a884]" />
+              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-50">
+                <MessageCircle size={26} className="text-[#2563EB]" />
               </span>
-              <p className="mt-4 text-[16px] font-bold text-[#111b21]">No conversations yet</p>
-              <p className="mt-1 max-w-[250px] text-[13.5px] text-[#667781]">
+              <p className="mt-4 text-[16px] font-bold text-[#0f172a]">No conversations yet</p>
+              <p className="mt-1 max-w-[250px] text-[13.5px] text-[#64748b]">
                 Message someone on ChatHub to start a thread.
               </p>
               <button
@@ -335,11 +333,11 @@ export default function Sidebar() {
           /* ---- contacts list ---- */
           contacts.length === 0 ? (
             <div className="flex flex-col items-center px-6 py-16 text-center">
-              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-[#f0f2f5]">
-                <User size={26} className="text-[#00a884]" />
+              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-blue-50">
+                <User size={26} className="text-[#2563EB]" />
               </span>
-              <p className="mt-4 text-[16px] font-bold text-[#111b21]">No contacts saved</p>
-              <p className="mt-1 max-w-[250px] text-[13.5px] text-[#667781]">
+              <p className="mt-4 text-[16px] font-bold text-[#0f172a]">No contacts saved</p>
+              <p className="mt-1 max-w-[250px] text-[13.5px] text-[#64748b]">
                 Save phone numbers here so you can start conversations with them.
               </p>
               <button
@@ -356,13 +354,13 @@ export default function Sidebar() {
                 return (
                   <div
                     key={c.contact_id}
-                    className="group flex w-full cursor-pointer items-center gap-3 px-4 py-2.5 text-left transition-colors hover:bg-[#f5f6f6]"
+                    className="group flex w-full cursor-pointer items-center gap-3 px-4 py-2.5 text-left transition-colors hover:bg-[#f8fafc]"
                     onClick={() => setProfileContact(c)}
                   >
                     <Avatar name={c.name} size="md" />
                     <div className="min-w-0 flex-1">
-                      <p className="truncate text-[15px] font-medium text-[#111b21]">{c.name}</p>
-                      <p className="truncate text-[13px] text-[#667781]">{c.phone}</p>
+                      <p className="truncate text-[15px] font-medium text-[#0f172a]">{c.name}</p>
+                      <p className="truncate text-[13px] text-[#64748b]">{c.phone}</p>
                     </div>
                     {cid != null ? (
                       <button
@@ -370,16 +368,16 @@ export default function Sidebar() {
                           e.stopPropagation()
                           void openChat(cid)
                         }}
-                        className="flex shrink-0 items-center gap-1.5 rounded-lg bg-[#00a884]/10 px-2.5 py-1.5 text-[12.5px] font-semibold text-[#008069] transition hover:bg-[#00a884]/20"
+                        className="flex shrink-0 items-center gap-1.5 rounded-lg bg-blue-50 px-2.5 py-1.5 text-[12.5px] font-semibold text-[#2563EB] transition hover:bg-blue-100"
                       >
                         <MessageSquare size={13} /> Message
                       </button>
                     ) : (
-                      <span className="shrink-0 rounded-full bg-[#f0f2f5] px-2.5 py-1 text-[11px] font-medium text-[#8696a0]">
+                      <span className="shrink-0 rounded-full bg-[#f1f5f9] px-2.5 py-1 text-[11px] font-medium text-[#94a3b8]">
                         Not on ChatHub
                       </span>
                     )}
-                    <ChevronRight size={16} className="shrink-0 text-[#c8ced3] transition group-hover:text-[#667781]" />
+                    <ChevronRight size={16} className="shrink-0 text-[#cbd5e1] transition group-hover:text-[#64748b]" />
                   </div>
                 )
               })}

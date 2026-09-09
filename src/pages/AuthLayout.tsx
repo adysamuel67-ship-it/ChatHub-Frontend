@@ -9,30 +9,30 @@ const BUBBLES = [
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-full min-h-dvh bg-[#0b1a2a]">
+    <div className="flex h-full min-h-dvh bg-[#0B1220]">
       {/* Brand panel */}
-      <div className="relative hidden w-[46%] flex-col justify-between overflow-hidden bg-[#0b1a2a] p-12 lg:flex">
+      <div className="relative hidden w-[46%] flex-col justify-between overflow-hidden bg-gradient-to-br from-[#0B1220] via-[#0F1B33] to-[#0B1220] p-12 lg:flex">
         {/* decorative gradient orbs */}
-        <div className="pointer-events-none absolute -left-32 top-[-10%] h-[26rem] w-[26rem] rounded-full bg-emerald-500/25 blur-[110px]" />
+        <div className="pointer-events-none absolute -left-32 top-[-10%] h-[26rem] w-[26rem] rounded-full bg-blue-600/25 blur-[110px]" />
         <div className="pointer-events-none absolute right-[-15%] bottom-[-10%] h-[24rem] w-[24rem] rounded-full bg-sky-500/20 blur-[110px]" />
-        <div className="pointer-events-none absolute left-[40%] top-[45%] h-40 w-40 rounded-full bg-violet-500/15 blur-[80px]" />
+        <div className="pointer-events-none absolute left-[40%] top-[45%] h-40 w-40 rounded-full bg-indigo-500/15 blur-[80px]" />
 
         <Link to="/" className="relative flex items-center gap-2.5">
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-600 shadow-lg shadow-emerald-500/30">
+          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-400 to-indigo-600 shadow-lg shadow-blue-500/30">
             <MessageSquareText className="h-5.5 w-5.5 text-white" strokeWidth={2.2} />
           </span>
           <span className="text-[22px] font-bold tracking-tight text-white">ChatHub</span>
         </Link>
 
         <div className="relative z-10 max-w-md">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[13px] font-medium text-emerald-300 backdrop-blur">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-400/20 bg-blue-500/10 px-3.5 py-1.5 text-[13px] font-medium text-blue-300 backdrop-blur">
             <Sparkles className="h-3.5 w-3.5" />
             Realtime messaging, zero compromise
           </div>
 
           <h1 className="text-[2.9rem] font-bold leading-[1.08] tracking-tight text-white">
             Messages that feel
-            <span className="bg-gradient-to-r from-emerald-300 to-sky-300 bg-clip-text text-transparent"> instant.</span>
+            <span className="bg-gradient-to-r from-blue-300 to-sky-300 bg-clip-text text-transparent"> instant.</span>
           </h1>
 
           <p className="mt-5 text-[15px] leading-relaxed text-white/60">
@@ -47,8 +47,8 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
               { icon: Sparkles, title: 'Polished everywhere', desc: 'Responsive and delightful on any screen' },
             ].map(({ icon: Icon, title, desc }) => (
               <li key={title} className="flex items-center gap-4">
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-white/10 bg-white/5 backdrop-blur">
-                  <Icon className="h-5 w-5 text-emerald-300" />
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-blue-400/10 bg-blue-500/10 backdrop-blur">
+                  <Icon className="h-5 w-5 text-blue-300" />
                 </span>
                 <div>
                   <p className="text-[15px] font-semibold text-white">{title}</p>
@@ -67,7 +67,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
               className={`anim-float w-fit max-w-[75%] rounded-2xl px-4 py-3 backdrop-blur ${
                 b.side === 'in'
                   ? 'rounded-tl-sm border border-white/10 bg-white/10 text-white/85'
-                  : 'ml-auto rounded-tr-sm bg-gradient-to-r from-emerald-500/80 to-teal-500/80 text-white'
+                  : 'ml-auto rounded-tr-sm bg-gradient-to-r from-blue-500/80 to-sky-500/80 text-white'
               }`}
               style={{ animationDelay: b.delay }}
             >
@@ -84,14 +84,14 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
       </div>
 
       {/* Form panel */}
-      <div className="relative flex flex-1 flex-col overflow-y-auto bg-[#eef2f7] sm:px-8">
-        <div className="pointer-events-none absolute left-1/2 top-0 h-80 w-[40rem] -translate-x-1/2 rounded-full bg-emerald-400/10 blur-[100px]" />
+      <div className="relative flex flex-1 flex-col overflow-y-auto bg-[#f1f5f9] sm:px-8">
+        <div className="pointer-events-none absolute left-1/2 top-0 h-80 w-[40rem] -translate-x-1/2 rounded-full bg-blue-400/10 blur-[100px]" />
 
         <div className="flex items-center gap-2.5 px-5 pt-8 lg:hidden">
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-600 shadow-lg shadow-emerald-500/30">
+          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-400 to-indigo-600 shadow-lg shadow-blue-500/30">
             <MessageSquareText className="h-5.5 w-5.5 text-white" strokeWidth={2.2} />
           </span>
-          <span className="text-xl font-bold tracking-tight text-[#0b1a2a]">ChatHub</span>
+          <span className="text-xl font-bold tracking-tight text-[#0B1220]">ChatHub</span>
         </div>
 
         <div className="anim-fade-up m-auto w-full max-w-[420px] px-5 py-8">{children}</div>

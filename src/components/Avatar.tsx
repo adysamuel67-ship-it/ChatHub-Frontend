@@ -27,13 +27,13 @@ export default function Avatar({ name = '?', size = 'md', online, className = ''
   return (
     <div className={`relative shrink-0 ${className}`}>
       <div
-        className={`${sizeMap[size]} ${ring ? 'ring-2 ring-white/90 shadow-lg' : ''} flex items-center justify-center rounded-full font-semibold text-white select-none`}
+        className={`${sizeMap[size]} ${ring ? 'ring-2 ring-blue-200 shadow-lg' : ''} flex items-center justify-center rounded-full font-semibold text-white select-none`}
         style={gradient}
       >
         {initials(name || '?')}
       </div>
       {online && (
-        <span className={`absolute ${dotSize[size]} rounded-full bg-emerald-400 ring-2 ring-white`} />
+        <span className={`absolute ${dotSize[size]} rounded-full bg-sky-400 ring-2 ring-white`} />
       )}
     </div>
   )

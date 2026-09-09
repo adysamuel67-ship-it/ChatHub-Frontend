@@ -75,10 +75,10 @@ function ContactProfileView({ contact, onClose }: { contact: Contact; onClose: (
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end">
-      <div className="absolute inset-0 bg-[#0b1a2a]/40 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-[#0B1220]/40 backdrop-blur-sm" onClick={onClose} />
 
       <div className="anim-fade-up relative flex h-full w-full max-w-sm flex-col bg-white shadow-2xl">
-        <div className="relative h-24 shrink-0 bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600">
+        <div className="relative h-24 shrink-0 bg-gradient-to-r from-blue-600 via-sky-600 to-indigo-600">
           <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(circle at 80% 20%, rgba(255,255,255,.5), transparent 50%)' }} />
           <button onClick={onClose} className="absolute left-4 top-5 icon-btn !bg-white/15 !text-white hover:!bg-white/25">
             <ChevronRight size={20} className="rotate-180" />
@@ -92,15 +92,15 @@ function ContactProfileView({ contact, onClose }: { contact: Contact; onClose: (
 
         <div className="flex-1 overflow-y-auto px-5 pb-8">
           <div className="mt-4 text-center">
-            <p className="text-[19px] font-bold text-[#111b21]">{contact.name}</p>
+            <p className="text-[19px] font-bold text-[#0f172a]">{contact.name}</p>
             <p className="mt-0.5 text-[13px] text-gray-500">{formatPhone(contact.phone)}</p>
             <div className="mt-2.5 flex flex-wrap items-center justify-center gap-1.5">
               {isOnline ? (
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-[11.5px] font-semibold text-emerald-700">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> Online now
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-[11.5px] font-semibold text-blue-700">
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue-500" /> Online now
                 </span>
               ) : onChatHub ? (
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1 text-[11.5px] font-semibold text-emerald-700">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-3 py-1 text-[11.5px] font-semibold text-blue-700">
                   <ShieldCheck size={13} /> On ChatHub
                 </span>
               ) : (
@@ -111,34 +111,34 @@ function ContactProfileView({ contact, onClose }: { contact: Contact; onClose: (
             </div>
           </div>
 
-          <div className="card mt-5 divide-y divide-gray-50">
+          <div className="card mt-5 divide-y divide-slate-50">
             {infoRows.map((row, i) => (
               <div key={`${row.label}-${i}`} className="flex items-center gap-3 p-3.5">
                 <span
                   className={`flex h-10 w-10 items-center justify-center rounded-xl ${
                     row.label === 'Phone'
-                      ? 'bg-emerald-50 text-emerald-600'
+                      ? 'bg-blue-50 text-blue-600'
                       : row.label === 'Email'
                         ? 'bg-sky-50 text-sky-600'
-                        : 'bg-violet-50 text-violet-600'
+                        : 'bg-indigo-50 text-indigo-600'
                   }`}
                 >
                   {row.label === 'Phone' ? <Phone size={18} /> : row.label === 'Email' ? <Mail size={18} /> : <UserRound size={18} />}
                 </span>
                 <div className="min-w-0">
                   <p className="text-[11.5px] font-semibold uppercase tracking-wide text-gray-400">{row.label}</p>
-                  <p className="truncate text-[14px] font-medium text-[#111b21]">{row.value}</p>
+                  <p className="truncate text-[14px] font-medium text-[#0f172a]">{row.value}</p>
                 </div>
               </div>
             ))}
             {profile && profile.is_verified && (
               <div className="flex items-center gap-3 p-3.5">
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
                   <ShieldCheck size={18} />
                 </span>
                 <div className="min-w-0">
                   <p className="text-[11.5px] font-semibold uppercase tracking-wide text-gray-400">Status</p>
-                  <p className="text-[14px] font-medium text-[#111b21]">Verified member</p>
+                  <p className="text-[14px] font-medium text-[#0f172a]">Verified member</p>
                 </div>
               </div>
             )}

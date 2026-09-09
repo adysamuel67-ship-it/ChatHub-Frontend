@@ -9,8 +9,8 @@ import { MessageSquareText } from 'lucide-react'
 
 function Splash() {
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-4 bg-[#0b1a2a]">
-      <span className="flex h-16 w-16 items-center justify-center rounded-3xl bg-gradient-to-br from-emerald-400 to-teal-600 shadow-lg shadow-emerald-500/40">
+    <div className="flex h-full flex-col items-center justify-center gap-4 bg-[#0B1220]">
+      <span className="flex h-16 w-16 items-center justify-center rounded-3xl bg-gradient-to-br from-blue-400 to-indigo-600 shadow-lg shadow-blue-500/40">
         <MessageSquareText className="h-7 w-7 text-white" strokeWidth={2.2} />
       </span>
       <p className="animate-pulse text-[13px] font-medium text-white/50">Connecting you…</p>

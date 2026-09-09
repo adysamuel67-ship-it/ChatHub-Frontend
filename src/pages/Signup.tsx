@@ -6,10 +6,10 @@ import AuthLayout from './AuthLayout'
 
 function Rule({ met, children }: { met: boolean; children: React.ReactNode }) {
   return (
-    <li className={`flex items-center gap-2 text-xs transition ${met ? 'text-emerald-600' : 'text-gray-400'}`}>
+    <li className={`flex items-center gap-2 text-xs transition ${met ? 'text-blue-600' : 'text-slate-400'}`}>
       <span
         className={`flex h-4 w-4 items-center justify-center rounded-full transition ${
-          met ? 'bg-emerald-500 text-white' : 'bg-gray-200 text-transparent'
+          met ? 'bg-blue-500 text-white' : 'bg-slate-200 text-transparent'
         }`}
       >
         <Check className="h-3 w-3" strokeWidth={3} />
@@ -75,8 +75,8 @@ export default function Signup() {
   return (
     <AuthLayout>
       <div className="card p-6 sm:p-8">
-        <h2 className="text-[22px] font-bold tracking-tight text-[#0b1a2a]">Create your account</h2>
-        <p className="mt-1 text-[14.5px] text-[#55677a]">Join ChatHub and start messaging in minutes</p>
+        <h2 className="text-[22px] font-bold tracking-tight text-[#0B1220]">Create your account</h2>
+        <p className="mt-1 text-[14.5px] text-[#64748b]">Join ChatHub and start messaging in minutes</p>
 
         {error && (
           <div className="anim-fade-up mt-5 rounded-xl border border-red-200 bg-red-50 px-3.5 py-2.5 text-[13.5px] text-red-700">
@@ -86,11 +86,11 @@ export default function Signup() {
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
           <div>
-            <label htmlFor="signup-name" className="mb-1.5 block text-[13.5px] font-semibold text-[#0f2a44]">
+            <label htmlFor="signup-name" className="mb-1.5 block text-[13.5px] font-semibold text-[#1e293b]">
               Full name
             </label>
             <div className="relative">
-              <User className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-400" />
+              <User className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-slate-400" />
               <input
                 id="signup-name"
                 type="text"
@@ -106,11 +106,11 @@ export default function Signup() {
           </div>
 
           <div>
-            <label htmlFor="signup-phone" className="mb-1.5 block text-[13.5px] font-semibold text-[#0f2a44]">
+            <label htmlFor="signup-phone" className="mb-1.5 block text-[13.5px] font-semibold text-[#1e293b]">
               Phone
             </label>
             <div className="relative">
-              <Phone className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-400" />
+              <Phone className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-slate-400" />
               <input
                 id="signup-phone"
                 type="tel"
@@ -128,11 +128,11 @@ export default function Signup() {
           </div>
 
           <div>
-            <label htmlFor="signup-email" className="mb-1.5 block text-[13.5px] font-semibold text-[#0f2a44]">
-              Email <span className="font-normal text-gray-400">(optional)</span>
+            <label htmlFor="signup-email" className="mb-1.5 block text-[13.5px] font-semibold text-[#1e293b]">
+              Email <span className="font-normal text-slate-400">(optional)</span>
             </label>
             <div className="relative">
-              <Mail className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-400" />
+              <Mail className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-slate-400" />
               <input
                 id="signup-email"
                 type="email"
@@ -146,11 +146,11 @@ export default function Signup() {
           </div>
 
           <div>
-            <label htmlFor="signup-password" className="mb-1.5 block text-[13.5px] font-semibold text-[#0f2a44]">
+            <label htmlFor="signup-password" className="mb-1.5 block text-[13.5px] font-semibold text-[#1e293b]">
               Password
             </label>
             <div className="relative">
-              <Lock className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-400" />
+              <Lock className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-slate-400" />
               <input
                 id="signup-password"
                 type={showPassword ? 'text' : 'password'}
@@ -168,7 +168,7 @@ export default function Signup() {
                 type="button"
                 tabIndex={-1}
                 onClick={() => setShowPassword((v) => !v)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 transition hover:text-gray-600"
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-slate-400 transition hover:text-slate-600"
               >
                 {showPassword ? <EyeOff className="h-[18px] w-[18px]" /> : <Eye className="h-[18px] w-[18px]" />}
               </button>
@@ -176,13 +176,13 @@ export default function Signup() {
             <button
               type="button"
               onClick={() => setShowRules((v) => !v)}
-              className="mt-1.5 flex items-center gap-1 text-xs font-medium text-[#55677a] transition hover:text-[#0f2a44]"
+              className="mt-1.5 flex items-center gap-1 text-xs font-medium text-[#64748b] transition hover:text-[#1e293b]"
             >
               Password strength {metCount}/4
               <ChevronDown className={`h-3.5 w-3.5 transition-transform ${showRules ? 'rotate-180' : ''}`} />
             </button>
             {showRules && (
-              <ul className="anim-fade-up mt-2 grid grid-cols-2 gap-x-3 gap-y-1.5 rounded-xl bg-white p-3 ring-1 ring-gray-100">
+              <ul className="anim-fade-up mt-2 grid grid-cols-2 gap-x-3 gap-y-1.5 rounded-xl bg-white p-3 ring-1 ring-slate-100">
                 <Rule met={rules.minLength}>8+ characters</Rule>
                 <Rule met={rules.hasUpper}>Uppercase</Rule>
                 <Rule met={rules.hasLower}>Lowercase</Rule>
@@ -192,11 +192,11 @@ export default function Signup() {
           </div>
 
           <div>
-            <label htmlFor="signup-confirm" className="mb-1.5 block text-[13.5px] font-semibold text-[#0f2a44]">
+            <label htmlFor="signup-confirm" className="mb-1.5 block text-[13.5px] font-semibold text-[#1e293b]">
               Confirm password
             </label>
             <div className="relative">
-              <Lock className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-400" />
+              <Lock className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-slate-400" />
               <input
                 id="signup-confirm"
                 type={showConfirm ? 'text' : 'password'}
@@ -211,7 +211,7 @@ export default function Signup() {
                 type="button"
                 tabIndex={-1}
                 onClick={() => setShowConfirm((v) => !v)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 transition hover:text-gray-600"
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-slate-400 transition hover:text-slate-600"
               >
                 {showConfirm ? <EyeOff className="h-[18px] w-[18px]" /> : <Eye className="h-[18px] w-[18px]" />}
               </button>
@@ -233,9 +233,9 @@ export default function Signup() {
           </button>
         </form>
 
-        <p className="mt-6 text-center text-[13.5px] text-[#55677a]">
+        <p className="mt-6 text-center text-[13.5px] text-[#64748b]">
           Already have an account?{' '}
-          <Link to="/login" className="font-semibold text-[#00a884] transition hover:text-[#007e63]">
+          <Link to="/login" className="font-semibold text-[#2563EB] transition hover:text-[#1D4ED8]">
             Log in
           </Link>
         </p>

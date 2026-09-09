@@ -28,14 +28,14 @@ export function hashSeed(seed: string): number {
 }
 
 const AVATAR_GRADIENTS: [string, string][] = [
-  ['#FF6B9D', '#C93A76'],
-  ['#4A90D9', '#2756A6'],
-  ['#2BC886', '#0E9266'],
-  ['#F7B733', '#F0932B'],
-  ['#8D6CE0', '#5E3BB5'],
-  ['#FF8A5C', '#E24E42'],
-  ['#35C3D9', '#0F8BA8'],
-  ['#FFD36E', '#E8A838'],
+  ['#3B82F6', '#1D4ED8'],
+  ['#0EA5E9', '#0369A1'],
+  ['#6366F1', '#4338CA'],
+  ['#06B6D4', '#0E7490'],
+  ['#38BDF8', '#0284C7'],
+  ['#818CF8', '#4F46E5'],
+  ['#22D3EE', '#0F766E'],
+  ['#60A5FA', '#2563EB'],
 ]
 
 export function avatarGradient(seed: string): { background: string } {

@@ -44,8 +44,8 @@ export default function ChatWindow() {
         <div className="mx-auto flex max-w-[56rem] flex-col py-3">
           {/* encryption chip */}
           <div className="mb-2 flex justify-center">
-            <div className="flex items-center gap-1.5 rounded-lg bg-white/90 px-3 py-1 text-[11.5px] text-[#8696a0] shadow-sm backdrop-blur">
-              <Lock size={11} className="text-[#008069]" />
+            <div className="flex items-center gap-1.5 rounded-full bg-white/90 px-3.5 py-1 text-[11.5px] text-[#64748b] shadow-sm backdrop-blur">
+              <Lock size={11} className="text-[#2563EB]" />
               Messages are end-to-end encrypted
             </div>
           </div>
@@ -60,7 +60,7 @@ export default function ChatWindow() {
               <div key={msg.chat_id}>
                 {showDate && (
                   <div className="anim-fade-up flex justify-center py-1.5">
-                    <span className="rounded-lg bg-white px-3 py-1 text-[11.5px] font-medium text-[#54656f] shadow-sm">
+                    <span className="rounded-full bg-white px-3 py-1 text-[11.5px] font-medium text-[#54656f] shadow-sm">
                       {getDateLabel(msg.created_at)}
                     </span>
                   </div>
@@ -72,11 +72,11 @@ export default function ChatWindow() {
 
           {messages.length === 0 && (
             <div className="flex flex-col items-center py-16 text-center">
-              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-sm">
-                <MessagesSquare size={28} className="text-[#00a884]" />
+              <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow-sm">
+                <MessagesSquare size={28} className="text-[#2563EB]" />
               </span>
-              <p className="mt-4 text-[15px] font-bold text-[#3b4a54]">Say hi to {active.user.name.split(' ')[0]}</p>
-              <p className="mt-1 max-w-xs text-[13.5px] text-[#667781]">
+              <p className="mt-4 text-[15px] font-bold text-[#334155]">Say hi to {active.user.name.split(' ')[0]}</p>
+              <p className="mt-1 max-w-xs text-[13.5px] text-[#64748b]">
                 This is the beginning of your conversation. Messages you send will appear here.
               </p>
             </div>

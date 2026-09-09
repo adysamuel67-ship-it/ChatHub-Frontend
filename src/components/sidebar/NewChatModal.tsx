@@ -71,13 +71,13 @@ export default function NewChatModal({ open, onClose, onAdded }: NewChatModalPro
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[#0b1a2a]/45 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#0B1220]/45 p-4 backdrop-blur-sm"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose()
       }}
     >
       <div className="anim-pop w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-2xl">
-        <div className="relative flex items-center justify-center bg-gradient-to-r from-emerald-600 to-teal-600 px-5 py-5">
+        <div className="relative flex items-center justify-center bg-gradient-to-r from-blue-600 to-sky-600 px-5 py-5">
           <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/15 backdrop-blur">
             <UserPlus size={22} className="text-white" />
           </span>
@@ -92,10 +92,10 @@ export default function NewChatModal({ open, onClose, onAdded }: NewChatModalPro
 
         {done ? (
           <div className="flex flex-col items-center px-6 py-12">
-            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100">
-              <CheckCircle size={28} className="text-emerald-600" />
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-100">
+              <CheckCircle size={28} className="text-blue-600" />
             </span>
-            <p className="mt-3 text-[15px] font-bold text-[#111b21]">Contact saved!</p>
+            <p className="mt-3 text-[15px] font-bold text-[#0f172a]">Contact saved!</p>
             <p className="text-[13px] text-gray-400">Opening conversation…</p>
           </div>
         ) : (
@@ -106,7 +106,7 @@ export default function NewChatModal({ open, onClose, onAdded }: NewChatModalPro
 
             <div className="space-y-4">
               <div>
-                <label className="mb-1.5 block text-[13px] font-semibold text-[#333f50]">Name</label>
+                <label className="mb-1.5 block text-[13px] font-semibold text-[#334155]">Name</label>
                 <input
                   type="text"
                   value={name}
@@ -118,7 +118,7 @@ export default function NewChatModal({ open, onClose, onAdded }: NewChatModalPro
               </div>
 
               <div>
-                <label className="mb-1.5 block text-[13px] font-semibold text-[#333f50]">Phone</label>
+                <label className="mb-1.5 block text-[13px] font-semibold text-[#334155]">Phone</label>
                 <input
                   type="tel"
                   value={phone}
@@ -136,7 +136,7 @@ export default function NewChatModal({ open, onClose, onAdded }: NewChatModalPro
                   </div>
                 )}
                 {phoneStatus === 'found' && (
-                  <div className="anim-fade-up mt-2 flex items-center gap-2 rounded-lg bg-emerald-50 px-3 py-2 text-[13px] text-emerald-700">
+                  <div className="anim-fade-up mt-2 flex items-center gap-2 rounded-lg bg-blue-50 px-3 py-2 text-[13px] text-blue-700">
                     <CheckCircle size={15} className="shrink-0" />
                     <span>
                       <span className="font-semibold">{statusName}</span> is on ChatHub — messaging enabled
@@ -152,7 +152,7 @@ export default function NewChatModal({ open, onClose, onAdded }: NewChatModalPro
               </div>
 
               <div>
-                <label className="mb-1.5 block text-[13px] font-semibold text-[#333f50]">
+                <label className="mb-1.5 block text-[13px] font-semibold text-[#334155]">
                   Email <span className="font-normal text-gray-400">(optional)</span>
                 </label>
                 <input

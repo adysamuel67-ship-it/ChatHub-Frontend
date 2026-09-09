@@ -39,8 +39,8 @@ export default function Login() {
   return (
     <AuthLayout>
       <div className="card p-7 sm:p-8">
-        <h2 className="text-[22px] font-bold tracking-tight text-[#0b1a2a]">Welcome back</h2>
-        <p className="mt-1 text-[14.5px] text-[#55677a]">Sign in to continue to your messages</p>
+        <h2 className="text-[22px] font-bold tracking-tight text-[#0B1220]">Welcome back</h2>
+        <p className="mt-1 text-[14.5px] text-[#64748b]">Sign in to continue to your messages</p>
 
         {error && (
           <div className="anim-fade-up mt-5 rounded-xl border border-red-200 bg-red-50 px-3.5 py-2.5 text-[13.5px] text-red-700">
@@ -50,11 +50,11 @@ export default function Login() {
 
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
           <div>
-            <label htmlFor="login-phone" className="mb-1.5 block text-[13.5px] font-semibold text-[#0f2a44]">
+            <label htmlFor="login-phone" className="mb-1.5 block text-[13.5px] font-semibold text-[#1e293b]">
               Phone
             </label>
             <div className="relative">
-              <Phone className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-400" />
+              <Phone className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-slate-400" />
               <input
                 id="login-phone"
                 type="tel"
@@ -70,11 +70,11 @@ export default function Login() {
           </div>
 
           <div>
-            <label htmlFor="login-password" className="mb-1.5 block text-[13.5px] font-semibold text-[#0f2a44]">
+            <label htmlFor="login-password" className="mb-1.5 block text-[13.5px] font-semibold text-[#1e293b]">
               Password
             </label>
             <div className="relative">
-              <Lock className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-400" />
+              <Lock className="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-slate-400" />
               <input
                 id="login-password"
                 type={showPassword ? 'text' : 'password'}
@@ -88,7 +88,7 @@ export default function Login() {
                 type="button"
                 tabIndex={-1}
                 onClick={() => setShowPassword((v) => !v)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 transition hover:text-gray-600"
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-slate-400 transition hover:text-slate-600"
               >
                 {showPassword ? <EyeOff className="h-[18px] w-[18px]" /> : <Eye className="h-[18px] w-[18px]" />}
               </button>
@@ -107,9 +107,9 @@ export default function Login() {
           </button>
         </form>
 
-        <p className="mt-6 text-center text-[13.5px] text-[#55677a]">
+        <p className="mt-6 text-center text-[13.5px] text-[#64748b]">
           Don't have an account?{' '}
-          <Link to="/signup" className="font-semibold text-[#00a884] transition hover:text-[#007e63]">
+          <Link to="/signup" className="font-semibold text-[#2563EB] transition hover:text-[#1D4ED8]">
             Sign up
           </Link>
         </p>
