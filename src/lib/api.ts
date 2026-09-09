@@ -2,6 +2,18 @@ import type { AuthResponse, Contact, ChatMessage, ConversationSummary, PresenceR
 
 const API_BASE = import.meta.env.VITE_API_BASE ?? '/api'
 
+function resolveWsBase(path: string): string {
+  try {
+    const u = new URL(API_BASE)
+    return `${u.protocol === 'https:' ? 'wss' : 'ws'}://${u.host}${path}`
+  } catch {
+    const proto = window.location.protocol === 'https:' ? 'wss' : 'ws'
+    return `${proto}://${window.location.host}${path}`
+  }
+}
+
+export const WS_CHAT_URL = resolveWsBase('/chat/ws/chat')
+
 let accessToken: string | null = localStorage.getItem('chathub_access_token')
 let refreshToken: string | null = localStorage.getItem('chathub_refresh_token')
 let refreshing: Promise<string | null> | null = null

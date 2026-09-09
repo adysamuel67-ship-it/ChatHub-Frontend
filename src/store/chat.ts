@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { api, getConversationMessages, refreshAccessToken } from '../lib/api'
+import { api, getConversationMessages, refreshAccessToken, WS_CHAT_URL } from '../lib/api'
 import { publishUser } from '../lib/directory'
 import type { ChatMessage, Contact, ConversationSummary, WsChatMessage } from '../types'
 import { useAuthStore } from './auth'
@@ -71,8 +71,7 @@ async function connectSocketFor() {
   }
   if (!token) return
 
-  const proto = window.location.protocol === 'https:' ? 'wss' : 'ws'
-  const url = `${proto}://${window.location.host}/chat/ws/chat?token=${token}`
+  const url = `${WS_CHAT_URL}?token=${token}`
   const ws = new WebSocket(url)
   wsInstance = ws
 

@@ -11,21 +11,23 @@ export default function MessageBubble({ message, isOwn }: MessageBubbleProps) {
   const Double = isOwn ? CheckCheck : Check
 
   return (
-    <div className={`anim-msg flex w-full px-3 py-[2px] md:px-5 ${isOwn ? 'justify-end' : 'justify-start'}`}>
+    <div className={`anim-msg flex w-full px-4 py-[2px] md:px-6 ${isOwn ? 'justify-end' : 'justify-start'}`}>
       <div
-        className={`relative max-w-[76%] rounded-[14px] px-3 pb-1.5 pt-2 shadow-[0_1px_2px_rgba(15,23,42,0.08)] md:max-w-[58%] ${
+        className={`relative max-w-[78%] rounded-lg px-2.5 pb-1.5 pt-1.5 shadow-[0_1px_0.5px_rgba(11,27,42,0.13)] md:max-w-[58%] ${
           isOwn
-            ? 'rounded-br-[4px] bg-gradient-to-br from-[#d7f7e9] to-[#c7f0df]'
-            : 'rounded-bl-[4px] bg-white'
+            ? 'rounded-tr-[2px] bg-[#d9fdd3]'
+            : 'rounded-tl-[2px] bg-white'
         }`}
       >
-        <p className="whitespace-pre-wrap break-words text-[14.5px] leading-[1.45] text-[#111b21]">
+        <p className="whitespace-pre-wrap break-words text-[14.2px] leading-[1.35] text-[#111b21]">
           {message.message}
         </p>
-        <div className="mt-0.5 flex items-center justify-end gap-1">
-          <span className="text-[10.5px] text-gray-500">{formatTime(message.created_at)}</span>
+        <div className="ml-auto mt-0.5 flex w-fit items-center justify-end gap-1">
+          <span className="text-[11px] text-[#667781]">{formatTime(message.created_at)}</span>
           <Double
-            className={`h-[15px] w-[15px] ${isOwn ? (message.is_read ? 'text-emerald-500' : 'text-emerald-400') : 'text-gray-400'}`}
+            className={`h-[15px] w-[15px] ${
+              isOwn ? (message.is_read ? 'text-[#53bdeb]' : 'text-[#a7b6c0]') : 'text-[#8696a0]'
+            }`}
           />
         </div>
       </div>
