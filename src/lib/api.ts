@@ -1,6 +1,7 @@
 import type { AuthResponse, Contact, ChatMessage, ConversationSummary, PresenceResponse, SignUpPayload, User } from '../types'
 
-const API_BASE = import.meta.env.VITE_API_BASE ?? '/api'
+const DEPLOYED_API_BASE = 'https://chathub-j095.onrender.com'
+const API_BASE = (import.meta.env.VITE_API_BASE ?? '').trim() || DEPLOYED_API_BASE
 
 function resolveWsBase(path: string): string {
   try {
